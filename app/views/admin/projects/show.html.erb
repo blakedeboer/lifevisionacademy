@@ -10,5 +10,11 @@
   <%= @project.project_img %>
 </p>
 
+<p>
+  <strong>Project items:</strong>
+  <%= @project.items %>
+</p>
+
+
 <%= link_to 'Edit', edit_admin_project_path(@project) %> |
 <%= link_to 'Back', admin_projects_path %>
