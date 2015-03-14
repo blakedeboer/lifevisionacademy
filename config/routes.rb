@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 
-  resources :items, only: [:show]
-  resources :projects, only: [:show]
+  resources :items, only: [:show], defaults: { format: 'json' }
+  resources :projects, only: [:show, :index], defaults: { format: 'json' }
 
   namespace :admin do
     resources :items

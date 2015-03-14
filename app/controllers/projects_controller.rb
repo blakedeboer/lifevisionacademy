@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  def index
+    @projects = Project.order('created_at DESC').all
+  end
+
  
 
   private
