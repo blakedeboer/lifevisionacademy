@@ -20,9 +20,9 @@
         <td><%= item.image %></td>
         <td><%= item.price %></td>
         <td><%= item.is_purchased %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_item_path(item) %></td>
+        <td><%= link_to 'Edit', edit_admin_item_path(item) %></td>
+        <td><%= link_to 'Destroy', admin_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
