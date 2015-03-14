@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
 
-  resources :items
-
-  resources :projects
+  resources :items, only: [:show]
+  resources :projects, only: [:show]
 
   namespace :admin do
     resources :items
