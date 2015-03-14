@@ -28,11 +28,9 @@ class Admin::ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        format.html { redirect_to [:admin, @item], notice: 'Item was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +40,9 @@ class Admin::ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
+        format.html { redirect_to [:admin, @item], notice: 'Item was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +52,7 @@ class Admin::ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to admin_items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +65,6 @@ class Admin::ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :image, :price, :is_purchased)
+      params.require(:item).permit(:name, :image, :price, :is_purchased, :project_id)
     end
 end
