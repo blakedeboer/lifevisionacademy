@@ -6,13 +6,21 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
   <strong>Project img:</strong>
   <%= @project.project_img %>
 </p>
 
 <p>
   <strong>Project items:</strong>
-  <%= @project.items %>
+  <br>
+  <% @project.items.each do |item| %>
+    <%= link_to item.name, [:admin, item] %><br>
+  <% end %>
 </p>
 
 
